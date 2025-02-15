@@ -1,0 +1,213 @@
+.tasbih-section {
+    padding: 2rem 0;
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #004d40 0%, #00695c 100%);
+}
+
+.tasbih-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.tasbih-display {
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.counter {
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+}
+
+.tasbih-circle {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 2rem;
+    position: relative;
+}
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.progress-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+    fill: none;
+    stroke: #b2dfdb;
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.count-btn {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: none;
+    background: radial-gradient(circle at 30% 30%, #00897b, #004d40);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.count-btn:hover {
+    animation: pulse 1s infinite;
+}
+
+.count-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.current-dhikr {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    width: 100%;
+    pointer-events: none;
+}
+
+.tap-hint {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.controls button {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls button i {
+    font-size: 1.3rem;
+}
+
+.controls button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.dhikr-list {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    display: none;
+}
+
+.dhikr-list.active {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+.dhikr-list h3 {
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.dhikr-items {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.dhikr-item {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.dhikr-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dhikr-item.active {
+    background: #00897b;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    .tasbih-wrapper {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .tasbih-circle {
+        width: 180px;
+        height: 180px;
+    }
+
+    .count-btn {
+        width: 130px;
+        height: 130px;
+    }
+
+    .counter {
+        font-size: 4rem;
+    }
+
+    .current-dhikr {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المسبحة الإلكترونية - القرآن الكريم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tasbih.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>القرآن الكريم</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="quran.html"><i class="fas fa-book-quran"></i> القرآن الكريم</a></li>
+                <li><a href="live.html"><i class="fas fa-broadcast-tower"></i> البث القرآني</a></li>
+                <li><a href="tasbih.html" class="active"><i class="fas fa-prayer-beads"></i> المسبحة</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tasbih-section">
+            <div class="container">
+                <div class="tasbih-wrapper">
+                    <div class="tasbih-display">
+                        <div class="counter">0</div>
+                    </div>
+                    
+                    <div class="tasbih-circle">
+                        <button class="count-btn">
+                            <span class="current-dhikr">سبحان الله</span>
+                            <span class="tap-hint">انقر للتسبيح</span>
+                        </button>
+                    </div>
+
+                    <div class="controls">
+                        <button class="reset-btn" title="إعادة تعيين"><i class="fas fa-redo"></i></button>
+                        <button class="dhikr-btn" title="قائمة الأذكار"><i class="fas fa-list"></i></button>
+                    </div>
+
+                    <div class="dhikr-list">
+                        <h3>الأذكار</h3>
+                        <div class="dhikr-items">
+                            <button class="dhikr-item active">سبحان الله</button>
+                            <button class="dhikr-item">الحمد لله</button>
+                            <button class="dhikr-item">الله أكبر</button>
+                            <button class="dhikr-item">لا إله إلا الله</button>
+                            <button class="dhikr-item">أستغفر الله</button>
+                            <button class="dhikr-item">لا حول ولا قوة إلا بالله</button>
+                            <button class="dhikr-item">سبحان الله وبحمده</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>جميع الحقوق محفوظة لدى ابراهيم محمد &copy; 2025</p>
+        </div>
+    </footer>
+
+    <script src="tasbih.js"></script>
+</body>
+</html>

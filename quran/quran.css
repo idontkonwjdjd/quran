@@ -1,0 +1,637 @@
+.quran-section {
+    padding: 2rem 0;
+    min-height: calc(100vh - 140px);
+}
+
+.quran-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    background: #004d40;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tab-btn:hover {
+    background: #00695c;
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: #00897b;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.tab-btn i {
+    font-size: 1.2rem;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 1rem;
+    padding-right: 3rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: #004d40;
+    outline: none;
+}
+
+.search-box i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.reciters-grid, .surahs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.reciter-card, .surah-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.reciter-card:hover, .surah-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.reciter-card h3, .surah-card h3 {
+    color: #004d40;
+    margin-bottom: 0.5rem;
+}
+
+.reciter-card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.surah-card .surah-number {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: #004d40;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.recitations-list {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.recitation-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.recitation-item:hover {
+    background: #f5f5f5;
+}
+
+.recitation-item:last-child {
+    border-bottom: none;
+}
+
+.audio-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    margin-top: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.player-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.now-playing {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#quran-audio {
+    flex: 2;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.quran-select-wrapper {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.quran-select {
+    flex: 1;
+    min-width: 250px;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: white;
+    color: #004d40;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Naskh Arabic', serif;
+}
+
+.quran-select:hover {
+    border-color: #004d40;
+}
+
+.quran-select:focus {
+    outline: none;
+    border-color: #004d40;
+    box-shadow: 0 0 0 2px rgba(0, 77, 64, 0.1);
+}
+
+.quran-select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.quran-select option {
+    padding: 0.5rem;
+}
+
+/* إضافة نمط لخيارات القائمة المعطلة */
+.quran-select option:disabled {
+    background-color: #f5f5f5;
+    color: #999;
+}
+
+/* مؤشر التحميل */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #004d40;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.loading-text {
+    color: #004d40;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.status-message {
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.status-message.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+.status-message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.status-message.info {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #bbdefb;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+audio {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.loading-indicator {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    .quran-tabs {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .player-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .now-playing {
+        text-align: center;
+    }
+
+    .quran-select {
+        min-width: 100%;
+    }
+}
+
+#current-surah {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004d40;
+}
+
+#current-reciter, #current-rewaya {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* تنسيق حقل البحث */
+.search-container {
+    position: relative;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem;
+    padding-right: 3rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Noto Naskh Arabic', serif;
+}
+
+.search-input:focus {
+    border-color: #004d40;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 77, 64, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+/* تنسيق مشغل الصوت الثابت */
+.audio-player-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.player-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.now-playing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.playing-info {
+    flex: 1;
+}
+
+#current-surah {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004d40;
+    margin-bottom: 0.5rem;
+}
+
+.reciter-info {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #004d40;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: #00695c;
+    transform: scale(1.05);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.volume-control i {
+    color: #004d40;
+}
+
+#volume {
+    width: 100px;
+    height: 4px;
+    -webkit-appearance: none;
+    background: #e0e0e0;
+    border-radius: 2px;
+    outline: none;
+}
+
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #004d40;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #004d40;
+    border-radius: 2px;
+    width: 0;
+}
+
+#current-time, #duration {
+    font-size: 0.9rem;
+    color: #666;
+    min-width: 45px;
+}
+
+/* تصميم متجاوب للمشغل */
+@media (max-width: 768px) {
+    .now-playing {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .player-controls {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .volume-control {
+        display: none;
+    }
+}
+
+/* تنسيق قائمة نتائج البحث */
+.search-container {
+    position: relative;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    margin-top: 5px;
+    border: 2px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.search-result-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.8rem 1rem;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: #f5f5f5;
+}
+
+.search-result-item.selected {
+    background: #e8f5e9;
+    color: #004d40;
+    background-color: #e8f5e9;
+    color: #004d40;
+}
+
+.search-result-item.error {
+    color: #c62828;
+    text-align: center;
+}
+
+/* تنسيق أزرار التحكم في التشغيل */
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #004d40;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: #00695c;
+    transform: scale(1.05);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+#backward, #forward {
+    font-size: 0.9rem;
+}
+
+/* إشعارات التقديم والتأخير */
+.time-notification {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 77, 64, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    z-index: 1001;
+    animation: fadeIn 0.3s ease;
+}
+
+.time-notification.fade-out {
+    animation: fadeOut 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, 20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translate(-50%, 0); }
+    to { opacity: 0; transform: translate(-50%, 20px); }
+}
